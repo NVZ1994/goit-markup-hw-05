@@ -16,6 +16,7 @@
   --icons-color: #AFB1B8;
   --activities-background: rgba(47, 48, 58, 0.8);
   --text-background: rgba(33, 150, 243, 0.9);
+  --backdrop-background: rgba(0, 0, 0, 0.2);
 }
 
 /* общее на всем доке */
@@ -268,8 +269,8 @@ ul {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-button:hover,
-button:focus {
+.btn:hover,
+.btn:focus {
   background-color: var(--accent-text-color);
   color: var(--primary-white-color);
 }
@@ -663,4 +664,41 @@ footer .fact {
   
   width: 100%;
   padding: 27px 0;
+}
+
+.modal {
+  width: 528px;
+  height: 581px;
+  background-color: var(--primary-white-color);
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.backdrop {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.2);
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  opacity: 1;
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-btn {
+  position: absolute;
+  padding: 0;
+  top: 300px;
+  right: 270px;
+  border-radius: 50%;
+  cursor: pointer; 
+  
 }
