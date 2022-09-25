@@ -13,10 +13,12 @@
   --portfolio-bcg-color: rgba(245, 244, 250, 1);
   --hero-bacground: #c4c4c4;
   --clients-list-border: 1px solid #afb1b8;
-  --icons-color: #AFB1B8;
+  --icons-color: #afb1b8;
   --activities-background: rgba(47, 48, 58, 0.8);
   --text-background: rgba(33, 150, 243, 0.9);
   --backdrop-background: rgba(0, 0, 0, 0.2);
+  --close-color: #000;
+  --close-btn-border: rgba(0, 0, 0, 0.1);
 }
 
 /* общее на всем доке */
@@ -200,7 +202,9 @@ ul {
   padding: 6px 22px;
   border-radius: 4px;
   border: none;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-section {
@@ -244,7 +248,6 @@ ul {
   transform: translateY(-100%);
 }
 
-
 .card-box {
   overflow: hidden;
 }
@@ -257,7 +260,6 @@ ul {
   color: var(--primary-white-color);
   background-color: var(--text-background);
 }
-
 
 .text {
   position: absolute;
@@ -283,8 +285,10 @@ ul {
   max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
-  background-image: linear-gradient(rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4)),
+  background-image: linear-gradient(
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
     url(../images/herobg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -309,7 +313,7 @@ ul {
   letter-spacing: 0.06em;
 }
 
-.hero-container>button {
+.hero-container > button {
   font-weight: 700;
   font-size: 16px;
   line-height: 1.875;
@@ -409,7 +413,7 @@ ul {
 }
 
 .activities-item {
-  flex-basis: calc((100%-4*30px)/3);
+  flex-basis: calc((100%-4 * 30px) / 3);
 }
 
 /* имена членов команды */
@@ -460,7 +464,8 @@ ul {
   border-radius: 50%;
   justify-content: center;
   align-items: center;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .member-social-link:hover,
@@ -571,9 +576,10 @@ footer .logo {
 
 footer .fact {
   color: var(--primary-white-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);  
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.email-footer, .phone {
+.email-footer,
+.phone {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -641,7 +647,7 @@ footer .fact {
   margin-left: 70px;
 }
 
-.footer-social>p {
+.footer-social > p {
   font-weight: 700;
   line-height: 1.14;
   text-transform: uppercase;
@@ -661,9 +667,27 @@ footer .fact {
   text-align: center;
   text-transform: uppercase;
   color: var(--primary-white-color);
-  
   width: 100%;
   padding: 27px 0;
+}
+
+.backdrop {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.2);
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 2550ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal {
@@ -675,30 +699,22 @@ footer .fact {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
 }
 
-.backdrop {
-  position: fixed;
-  background: rgba(0, 0, 0, 0.2);
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  opacity: 1;
-}
-
-.backdrop.is-hidden {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.modal-btn {
+.modal-close {
+  display: block;
   position: absolute;
-  padding: 0;
-  top: 300px;
-  right: 270px;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+
+  fill: var(--close-color);
+  background-color: var(--primary-white-color);
+
+  border: 1px solid var(--close-btn-border);
   border-radius: 50%;
-  cursor: pointer; 
-  
 }
