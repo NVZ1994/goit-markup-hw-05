@@ -14,6 +14,7 @@
   --hero-bacground: #c4c4c4;
   --clients-list-border: 1px solid #afb1b8;
   --icons-color: #AFB1B8;
+  --activities-background: rgba(47, 48, 58, 0.8);
 }
 
 /* общее на всем доке */
@@ -101,6 +102,7 @@ ul {
 .link {
   padding: 32px 0;
   display: block;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .phone-header {
@@ -109,10 +111,13 @@ ul {
   display: flex;
   align-items: center;
   color: var(--contacts-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .email-icon,
 .phone-icon {
   margin-right: 10px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .auth-nav-list a:hover svg,
@@ -125,6 +130,7 @@ ul {
   color: var(--contacts-color);
   display: flex;
   align-items: center;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link {
@@ -151,6 +157,18 @@ ul {
 
 .current {
   color: var(--accent-text-color);
+  position: relative;
+}
+
+.current::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  bottom: -1px;
+  left: 0;
+  background-color: var(--accent-text-color);
+  border-radius: 2px;
+  position: absolute;
 }
 
 .auth-nav-list {
@@ -181,6 +199,7 @@ button {
   border-radius: 4px;
   border: none;
 }
+
 .hero-button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
@@ -191,6 +210,7 @@ button {
   gap: 8px;
   margin-bottom: 50px;
 }
+
 .portfolio-btn:hover,
 .portfolio-btn:focus {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
@@ -210,6 +230,7 @@ button {
   flex-wrap: wrap;
   gap: 30px;
 }
+
 .cards {
   display: block;
 }
@@ -234,10 +255,8 @@ button:focus {
   max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
-  background-image: linear-gradient(
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4)
-    ),
+  background-image: linear-gradient(rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)),
     url(../images/herobg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -262,7 +281,7 @@ button:focus {
   letter-spacing: 0.06em;
 }
 
-.hero-container > button {
+.hero-container>button {
   font-weight: 700;
   font-size: 16px;
   line-height: 1.875;
@@ -362,7 +381,7 @@ button:focus {
 }
 
 .activities-item {
-  flex-basis: calc( (100%-4*30px)/3);
+  flex-basis: calc((100%-4*30px)/3);
 }
 
 /* имена членов команды */
@@ -398,12 +417,14 @@ button:focus {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 }
+
 .member-social {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
+
 .member-social-link {
   display: flex;
   width: 44px;
@@ -411,12 +432,14 @@ button:focus {
   border-radius: 50%;
   justify-content: center;
   align-items: center;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .member-social-link:hover,
 .member-social-link:focus {
   background-color: var(--accent-text-color);
 }
+
 .member-social-link:hover svg,
 .member-social-link:focus svg {
   fill: var(--primary-white-color);
@@ -471,6 +494,7 @@ button:focus {
   align-items: center;
   gap: 30px;
 }
+
 .clents-link {
   width: 170px;
   height: 92px;
@@ -479,10 +503,13 @@ button:focus {
   align-items: center;
   border: var(--clients-list-border);
   border-radius: 4px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .clients-list:hover svg {
   fill: var(--accent-text-color);
 }
+
 .clients-list a:hover,
 .clients-list a:focus {
   border-color: var(--accent-text-color);
@@ -494,6 +521,7 @@ footer {
   padding-top: 60px;
   padding-bottom: 60px;
 }
+
 .footer-container {
   display: flex;
   align-items: baseline;
@@ -515,6 +543,10 @@ footer .logo {
 
 footer .fact {
   color: var(--primary-white-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);  
+}
+.email-footer, .phone {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section-footer {
@@ -528,8 +560,10 @@ footer .fact {
 .footer-email {
   margin: 9px 0;
 }
+
 .icon {
   fill: var(--icons-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link {
@@ -540,6 +574,7 @@ footer .fact {
   justify-content: center;
   align-items: center;
 }
+
 .studio-social-link {
   display: flex;
   width: 44px;
@@ -549,6 +584,7 @@ footer .fact {
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
   fill: var(--primary-white-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .studio-social-link:hover,
@@ -560,26 +596,44 @@ footer .fact {
 .studio-social-link:focus svg {
   fill: var(--primary-white-color);
 }
+
 .studio-social {
   width: 20px;
   height: 20px;
   fill: var(--primary-white-color);
 }
+
 .social-contacts {
   display: flex;
   align-items: center;
   gap: 10px;
 }
+
 .footer-social {
   margin-left: 70px;
 }
 
-.footer-social > p {
+.footer-social>p {
   font-weight: 700;
-  font-size: 14px;
   line-height: 1.14;
-  letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--primary-white-color);
   margin-bottom: 20px;
+}
+
+.activities {
+  position: relative;
+}
+.box {
+  position: absolute;
+  bottom: 0;
+  background: var(--activities-background);
+  font-weight: 700;
+  line-height: 1.14;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--primary-white-color);
+  
+  width: 100%;
+  padding: 27px 0;
 }
